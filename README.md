@@ -16,7 +16,24 @@ Synthesis requires three files as follows,
 
 ◦ Liberty Files (.lib)
 
-◦ Verilog/VHDL Files (.v or .vhdl or .vhd)
+◦ Verilog/VHDL Files (.v or .vhdl or .vhd) 
+counter.v
+```
+`timescale 1ns/1ns
+module counter(clk,m,rst,count);
+input clk,m,rst;
+output reg [3:0] count;
+always@(posedge clk or negedge rst)
+begin
+if (!rst)
+count=0;
+else if(m)
+count=count+1;
+else
+count=count-1;
+end
+endmodule
+```
 
 ◦ SDC (Synopsis Design Constraint) File (.sdc)
 
@@ -64,12 +81,23 @@ used.
 • Genus Script file with .tcl file Extension commands are executed one by one to synthesize the netlist.
 
 #### Synthesis RTL Schematic :
+![image](https://github.com/user-attachments/assets/645edba9-f25e-4a31-aa19-082f54352026)
+
 
 #### Area report:
+![image](https://github.com/user-attachments/assets/f99ab819-52ce-47fd-a06d-91e886fd85fb)
+
 
 #### Power Report:
+![image](https://github.com/user-attachments/assets/9e357f0b-12fb-4d4d-8537-ff98abf1046d)
+
 
 #### Timing Report: 
+![Screenshot 2025-05-08 114644](https://github.com/user-attachments/assets/3c72eb72-2c17-48dc-a6e1-adff032d09d4)
+## gates report:
+![image](https://github.com/user-attachments/assets/e226457e-7d22-4253-9f77-5e8c46fed022)
+
+
 
 #### Result: 
 
